@@ -74,7 +74,7 @@ sum(vapply(x,function(xi){
 },0))
 ```
 
-I guess that the sum of 11+22+...+99 has a closed form solution. Maybe that is a faster way to solve this?
+I guess that the sum of 11+22+...+99 has a closed form solution. Maybe there is a faster way to solve this? I can't imagine how hard it would be to work out for n=2,3...
 
 $$
 1 + 2 + ... + 9 = 45
@@ -91,5 +91,6 @@ $$
 $$
 1010+1111+...+9999 = 4905 * 100 + 4905 = 495405
 $$
+
 
 
