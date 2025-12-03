@@ -2,11 +2,11 @@
 
 ## Part 1
 
-Idea: If we have a doubly number like 11, how do we figure out the next one?
+Idea: If we have a double number like 11, how do we figure out the next one?
 
 The next such numbers are 22, 33, ... 99. No 3-digit numbers work, and the first 4-digit number is 1010. The number being doubled in each case is 2,3,...,9,10. These are just being iterated!
 
-I get an upper and lower bound for i and j, the first and last doubly number in the range. Then read off the ones in between.
+I get an upper and lower bound for i and j, the first and last double number in the range. Then read off the ones in between.
 
 ``` R
 library(dplyr)
@@ -75,3 +75,4 @@ sum(vapply(x,function(xi){
 ```
 
 I guess that the sum of 11+22+...+99 has a closed form solution based on $\sum_{n=1}^9 n$. Maybe if that was written out, it could be related to the sum of 1010,1111,1212,...,9999 to get a faster solution?
+
