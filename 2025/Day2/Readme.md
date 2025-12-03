@@ -74,10 +74,10 @@ sum(vapply(x,function(xi){
 },0))
 ```
 
-I guess that the sum of 11+22+...+99 has a closed form solution based on $\sum_{n=1}^9 n$. Maybe if that was written out, it could be related to the sum of 1010,1111,1212,...,9999 to get a faster solution?
+I guess that the sum of 11+22+...+99 has a closed form solution. Maybe if that was written out, it could be related to the sum of 1010,1111,1212,...,9999 to get a faster solution?
 
 $$
-\sum_{n=1}^9 n = 45
+1 + 2 + ... + 9 = 45
 $$
 
 $$
@@ -91,3 +91,4 @@ $$
 $$
 1010+1111+...+9999 = 4905 * 100 + 4905 = 495405
 $$
+
