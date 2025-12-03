@@ -32,7 +32,7 @@ y
 
 ## Part 2
 
-The function f above can be modified to divide the number length by n and repeat each part n times. But it is also possible to just figure out what repeated number is the next/previous compared to a given full number, which makes this fast.
+The function f above can be modified to divide the number length by n and repeat each part n times. But it is also possible to just figure out what repeated number is the next/previous compared to a given full number, which makes it faster.
 
 ``` R
 library(dplyr)
@@ -75,4 +75,5 @@ sum(vapply(x,function(xi){
 ```
 
 I guess that the sum of 11+22+...+99 has a closed form solution based on $\sum_{n=1}^9 n$. Maybe if that was written out, it could be related to the sum of 1010,1111,1212,...,9999 to get a faster solution?
+
 
