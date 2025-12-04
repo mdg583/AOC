@@ -13,7 +13,7 @@ sum((50+cumsum(xlen*ifelse(xdir=="L",-1,1))) %% 100 == 0)
 
 ## Part 2
 
-Treat each final location of the dial as a class in terms of how many time the dial has turned past 0. Sum the difference in classes between each step. For the landing on 0 case, we double count a bunch of times and miss-count other times depending on if the class includes the lower or upper bound. So do both and average.
+Treat each final location of the dial as a class in terms of how many times the dial has turned past 0. Sum the difference in classes between each step. For the landing on 0 case, we double count a bunch of times and miss-count other times depending on if the class includes the lower or upper bound. So do both and average.
 
 ``` R
 x = readr::read_lines("input.txt")
