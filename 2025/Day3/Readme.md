@@ -5,7 +5,7 @@ I deleted this code ...
 
 ## Part 2
 
-`get_joltage` takes a vector of ints, and gives the largest 12-digit number using the elements of the vector in order. Idea is to make sure we leave enough digits for the rest of the number of the right, but then select the highest digit and the left-most such digit from the available digits.
+`get_joltage` takes a vector of ints, and gives the largest 12-digit number using the elements of the vector in order. Idea is to make sure we leave enough digits for the rest of the number on the right, but then select the highest digit and the left-most such digit from the available digits.
 
 ``` R
 library(dplyr)
@@ -27,4 +27,5 @@ y
 sum(y)
 paste0(sum(y))
 ```
+
 
