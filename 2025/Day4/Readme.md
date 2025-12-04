@@ -2,7 +2,7 @@
 
 ## Part 1
 
-This seemed like it could be done with a kernel smoothing function, but I couldn't figure out a way to do it in stock R, and I didn't want to implement a 2d convolution. So I decided to use one from a package. gsignal had one which is exactly what was needed.
+This seemed like it could be done with a kernel smoothing function, but I couldn't figure out a way to do it in stock R, and I didn't want to implement a 2d convolution. So I decided to use one from a package. [gsignal](https://github.com/gjmvanboxtel/gsignal) had one which is exactly what was needed.
 
 ``` R
 library(dplyr)
@@ -46,4 +46,5 @@ while(TRUE){
 }
 removed
 ```
+
 
