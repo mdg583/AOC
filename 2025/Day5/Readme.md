@@ -24,7 +24,7 @@ $$
 \begin{align*}
 a&\textendash b \\
 c&\textendash d
-\end{align}
+\end{align*}
 $$
 
 After sorting we know that $a \le c$, and if $a=c$ then $b \le d$. Overlap can only exist if $c \le b$. In this case, either the range goes from $a$ to $d$, or the full range $c\textendash d$ is embeded in the previous range.
