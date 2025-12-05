@@ -89,3 +89,13 @@ sum(vapply(x,function(xi){
   for(n in 2:nchar(xi[2])) r = union(r, f(xi,n))
   sum(r)
 },0))
+
+
+library(dplyr)
+options(scipen = 999)
+
+x = readr::read_delim("input.txt",",",col_types = "c",col_names = FALSE) %>%
+  stringr::str_split("-")
+
+x
+
