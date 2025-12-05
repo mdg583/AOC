@@ -5,13 +5,13 @@ This was from a crazy idea for a closed-form version of the algorithm. Somehow i
 The main ideas included:
 
 - Assume we have a fast way to sum all of the n-repeated numbers between a and b.
-- We face the issue that some digits that are 2-repeated are also 3-repeated, etc
+- We face the issue that some numbers that are 2-repeated are also 3-repeated, etc
 - While looking for solutions to this, a main question was: _can we quickly tell which numbers are both 2-repeated and 3-repeated?_
 - After a lot of thinking, I came the the following conclusions:
-  - Rule 1: any 4-repeated digit is also a 2-repeated digit. _If k | j, then any j-repeated number is also a k-repeated number_.
-  - Rule 2: any number that is both 2-repeated and 3-repeated must be 6-repeated. _Any number that is both k-repeated and j-repeated is also (j x k)-repeated_.
+  - Rule 1: any 4-repeated number is also a 2-repeated number. _If k | j, then any j-repeated number is also a k-repeated number_.
+  - Rule 2: any number that is both 2-repeated and 3-repeated must be 6-repeated. _The set of numbers that are both k and j repeated are the same set of numbers that are (k * j)-repeated_.
 
-Since all the number in the input are 10 digits or less, the only possibilities were 2 ... 10 repeated digits. To start with, we only look at prime numbers since the others are included in previous numbers, by Rule 1.
+Since all the numbers in the input are 10 digits or less, the only possibilities were $2 ... 10$ repeated digits. To start with, we only look at prime numbers since the others are included in previous numbers, by Rule 1.
 
 So we look at 2,3,5,7
 
@@ -80,3 +80,4 @@ uint64_t quick_sum(uint64_t a, uint64_t b){
 ```
 
 I'm not sure if this is optimized, but need to get some sleep...
+
