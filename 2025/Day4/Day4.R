@@ -28,12 +28,41 @@ can_remove = function(x){
   x & (xn < 4)
 }
 
-removed = 0
-to_remove = 0
-while(TRUE){
-  to_remove = can_remove(rolls)
-  if(sum(to_remove) == 0) break;
-  removed = removed + sum(to_remove)
-  rolls = rolls - to_remove
+system.time({  
+  removed = 0
+  to_remove = 0
+  while(TRUE){
+    to_remove = can_remove(rolls)
+    if(sum(to_remove) == 0) break;
+    removed = removed + sum(to_remove)
+    rolls = rolls - to_remove
+  }
+  removed
+})
+
+
+
+
+count_neighbors <- function(rolls) {
+  rows <- nrow(rolls)
+  cols <- ncol(rolls)
+  
+  neighbors <- matrix(0, rows, cols)
+  
+  # Sum neighbors from all 8 directions
+  for(dr in -1:1) {
+    for(dc in -1:1) {
+      if(dr == 0 && dc == 0) next
+      
+      r_idx <- row(rolls) + dr
+      c_idx <- col(rolls) + dc
+      r_i = cbind(r_idx, c_idx)
+      
+      neighbors <- neighbors + rolls[cbind(r_idx, c_idx)]
+    }
+  }
+  
+  sum(rolls == 1 & neighbors < 4)
 }
-removed
+
+count_neighbors(rolls)
