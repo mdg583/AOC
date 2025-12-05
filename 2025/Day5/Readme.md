@@ -21,8 +21,10 @@ sum(apply(outer(items,ranges[,1],`>=`) & outer(items,ranges[,2],`<=`),1,any))
 For part two, ranges need to be combined using some logic in order to remove overlap and count items by subtracting range boundaries. I first sort by the end of the ranges, then by the start. Then think about pairs of ranges:
 
 $$
+\begin{multiline}
 a\textendash b \\
 c\textendash d
+\end{multiline}
 $$
 
 After sorting we know that $a \le c$, and if $a=c$ then $b \le d$. Overlap can only exist if $c \le b$. In this case, either the range goes from $a$ to $d$, or the full range $c\textendash d$ is embeded in the previous range.
