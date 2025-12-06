@@ -2,7 +2,7 @@
 
 ## Part 1
 
-Being lazy I choose between product and sum of rows using `ifelse` which probably means both are computed for all rows.
+Being lazy I choose between product and sum of rows using `ifelse` which means both are computed for all rows.
 
 ``` R
 library(dplyr)
@@ -42,3 +42,4 @@ for(i in 1:(nrow(num.chars))){
 r = r + if(ops[op_i] == "+") { sum(nums) } else { prod(nums) }
 paste(r)
 ```
+
