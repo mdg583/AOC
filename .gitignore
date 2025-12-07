@@ -1,3 +1,4 @@
 input.txt
 .RData
 .Rhistory
+*.out
