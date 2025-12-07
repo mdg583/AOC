@@ -11,16 +11,13 @@ First find 'S' on the first row, and count rows. Then update beams line by line.
 // cat input.txt | ./Day7.out
 
 int main() {
-    // First row: find S and count lines
-    int s_loc = -1;
-    int cols = 0;
+    // First row: find S and count cols
+    int s_loc = -1; int cols = 0;
     char c = getchar();
-    while(c != EOF && c != '\n'){
+    while(c != EOF && c != '\n' && c != '\r'){
         if(c == 'S') s_loc = cols;
         c = getchar(); cols++;
     }
-    cols--;
-    // printf("S at %d, line is %d chars\n", s_loc, cols);
 
     // initialize beams
     long long *beams = (long long  *)malloc(sizeof(long long)*cols);
@@ -31,11 +28,7 @@ int main() {
     // check flow
     int i = 0;
     while((c = getchar()) != EOF){
-        if(c == '\n') {
-            i = 0;
-            // for(int j = 0; j < cols; j++) printf("%2lld ", beams[j]); printf("\n");
-            continue;
-        }
+        if(c == '\n') { i = 0; continue; }
         if(c == '^') {
             if(i > 0) beams[i-1] += beams[i];
             if(i < cols-1) beams[i+1] += beams[i];
