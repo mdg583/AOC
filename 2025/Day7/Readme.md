@@ -32,26 +32,23 @@ splits
 Perhaps the solution to part 1 made part 2 easier: rather than tracking if a beam exists at a location, track how many. At first I had thought maybe beams needed to be distinguished, but then it became clear just the number of beams is needed.
 
 ``` R
-# Part 2
 library(dplyr)
-x = readr::read_lines("example.txt")
+x = readr::read_lines("input.txt")
 grid = lapply(x,function(xi){
-  stringr::str_split_1(xi,"") %>% case_match(
-    "." ~  0, "S" ~  1, "^" ~  2
-  )
+  stringr::str_split_1(xi,"")
 }) %>% do.call(rbind,.)
 
 rshift = function(x) c(0,x[1:length(x)-1])
 lshift = function(x) c(x[2:length(x)],0)
 
-splits = 0
-r1 = 1*(grid[1,]==1)
+r1 = 1*(grid[1,]=='S')
 for(i in 2:nrow(grid)){
   g2 = grid[i,]
-  flow = (g2==0) * r1
-  split.right = (g2==0) * (lshift(g2)==2) * lshift(r1)
-  split.left  = (g2==0) * (rshift(g2)==2) * rshift(r1)
-  r1 = flow + split.right + split.left # number beams in diff universes
+  flow = (g2=='.') * r1
+  split.right = (g2=='.' & lshift(g2)=='^') * lshift(r1)
+  split.left  = (g2=='.' & rshift(g2)=='^') * rshift(r1)
+  r1 = flow + split.right + split.left # number of beams
 }
 paste(sum(r1))
 ```
+
