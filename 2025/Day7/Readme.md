@@ -51,7 +51,7 @@ for(i in 2:nrow(grid)){
   flow = (g2==0) * r1
   split.right = (g2==0) * (lshift(g2)==2) * lshift(r1)
   split.left  = (g2==0) * (rshift(g2)==2) * rshift(r1)
-  r1 = flow + split.right + split.left # number beans in diff universes
+  r1 = flow + split.right + split.left # number beams in diff universes
 }
 paste(sum(r1))
 ```

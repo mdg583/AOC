@@ -1,7 +1,7 @@
 # Part 1
 library(dplyr)
 x = readr::read_lines("example.txt")
-grid = lapply(x,function(xi){ 
+grid = lapply(x,function(xi){
   stringr::str_split_1(xi,"") %>% case_match(
     "." ~  0,
     "S" ~  1,
@@ -28,7 +28,7 @@ splits
 # Part 2
 library(dplyr)
 x = readr::read_lines("example.txt")
-grid = lapply(x,function(xi){ 
+grid = lapply(x,function(xi){
   stringr::str_split_1(xi,"") %>% case_match(
     "." ~  0, "S" ~  1, "^" ~  2
   )
@@ -44,6 +44,6 @@ for(i in 2:nrow(grid)){
   flow = (g2==0) * r1
   split.right = (g2==0) * (lshift(g2)==2) * lshift(r1)
   split.left  = (g2==0) * (rshift(g2)==2) * rshift(r1)
-  r1 = flow + split.right + split.left # number beans in diff universes
+  r1 = flow + split.right + split.left # number beams in diff universes
 }
 paste(sum(r1))
