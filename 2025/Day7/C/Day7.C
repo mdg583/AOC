@@ -6,7 +6,7 @@
 int main(int argc, char *argv[]) {
     long long total;
     FILE *f = fopen(argv[1], "r");
-    for(int k = 0; k < 10000; k++){
+    for(int k = 0; k < 1000000; k++){
         rewind(f);
         // First row: find S and count cols
         int s_loc = -1; int cols = 0;
@@ -35,6 +35,7 @@ int main(int argc, char *argv[]) {
         }
         // total = 0;
         for(i = 0; i < cols; i++) total += beams[i];
+        free(beams);
     }
     fclose(f);
     printf("Beams: %llu\n",total);
