@@ -131,6 +131,7 @@ int cnt_gift_overlaps(Gift this, Gift *gifts, int n){
 
 int cnt_world_overlap(Gift this, int w, int h){
     if(this.x < -1 || this.x > w || this.y < -1 || this.y > h){
+        // elastic out-of-bounds: more distance = more overlap
         int overlap = 0;
         if(this.x < -1) overlap += -1 - this.x;
         if(this.y < -1) overlap += -1 - this.y;
@@ -257,9 +258,9 @@ int simulate(Simulation s, char* name){
 
     display_simulation(s, gifts, total_gifts, "Simulated!");
     int caution = 124;
-    int max_sims = 10000;
-    int shortcut_overlap = 200;
-    int shortcut_time = 1000;
+    int max_sims = 60000;
+    int shortcut_overlap = 115;
+    int shortcut_time = 2000;
     int render_period = 500;
     int sleep_time = 0;
     int i;
@@ -317,6 +318,11 @@ int simulate(Simulation s, char* name){
         if(total_overlap == 0) break;
     }
 
+    // if(total_overlap == 0){
+    //     display_simulation(s, gifts, total_gifts, bottom);
+    //     printf("Done!\n");
+    //     usleep(3000000);
+    // }
     //int total_bits = 0;
     //for(int j = 0; j < total_gifts; j++) total_bits += count_bits(gifts[j].gmap);
 
@@ -416,7 +422,7 @@ int main(){
     }
     int total_fit = 0;
     for(int i = 0; i < num_sims; i++){
-        printf("Simulation: w=%d, h=%d: %s in %d\n", sims[i].w, sims[i].h, solved[i] ? "FAILED": "SOLVED",solved[i]);
+        printf("Simulation: w=%d, h=%d: %s with overlap %d\n", sims[i].w, sims[i].h, solved[i] ? "FAILED": "SOLVED",solved[i]);
         total_fit += solved[i]==0;
     }
     printf("Total fit: %d\n", total_fit);
